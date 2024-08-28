@@ -1,20 +1,43 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes instead of Switch
-import Navbar from './Components/NavBar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import CourseDetailPage from './pages/CourseDetailPage';
-import LoginPage from './pages/LoginPage';
 
+import CourseCatalog from './pages/CourseCatalog';
+import CourseCreation from './pages/CourseCreation';
+import CourseEnrollment from './pages/CourseEnrollment';
+import QuizPage from './pages/QuizPage';
+import './styles.css';
+import bgImage from './bg.jpg'; 
+import DiscussionForums from './pages/DiscussionForums';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes> {/* Replace Switch with Routes */}
-        <Route path="/" element={<HomePage />} /> {/* Use element prop instead of component */}
-        <Route path="/courses/:id" element={<CourseDetailPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+      <div className="bg-image" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="app-container">
+          <div className="main-content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              
+              <Route path="/catalog" element={<CourseCatalog />} />
+              <Route path="/create-course" element={<CourseCreation />} />
+              <Route path="/enroll" element={<CourseEnrollment />} />
+              <Route path="/quiz" element={<QuizPage />} />
+              <Route path="/forums" element={<DiscussionForums />} />
+            </Routes>
+          </div>
+          <div className="sidebar">
+            <h3>Quick Links</h3>
+            <ul>
+             
+              <li><a href="/catalog">Course Catalog</a></li>
+              <li><a href="/create-course">Create Course</a></li>
+              <li><a href="/enroll">Enroll</a></li>
+              <li><a href="/quiz">Take Quiz</a></li>
+              <li><a href="/forums">Discussion Forums</a></li> 
+            </ul>
+          </div>
+        </div>
+      </div>
     </Router>
   );
 }

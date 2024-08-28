@@ -1,27 +1,25 @@
 // src/pages/HomePage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './HomePage.css'; // Import CSS for styling
 
 const HomePage = () => {
-  const courses = [
-    { id: 1, title: 'Database Management Systems (DBMS)', description: 'Learn about relational databases, SQL, normalization, and more.' },
-    { id: 2, title: 'Computer Networks (CN)', description: 'Understand the fundamentals of networking, protocols, and network security.' },
-    { id: 3, title: 'Object-Oriented Programming (OOPs)', description: 'Master the principles of OOP including classes, inheritance, and polymorphism.' },
-    { id: 4, title: 'Operating Systems (OS)', description: 'Explore the concepts of operating systems, process management, and memory management.' },
-  ];
-
   return (
-    <div className="homepage">
-      <h1>Available Courses</h1>
-      <div className="course-list">
-        {courses.map(course => (
-          <div key={course.id} className="course-card">
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
-            <Link to={`/courses/${course.id}`} className="view-course-link">View Course</Link>
-          </div>
-        ))}
+    <div className="container mt-4 text-center text-white-shadow">
+      <h1>Welcome to the Online Course Platform</h1>
+      <p>Your gateway to a world of learning opportunities.</p>
+      <div className="mt-4">
+        <Link to="/dashboard" className="btn btn-custom mr-2">
+          Student Dashboard
+        </Link>
+        <Link to="/catalog" className="btn btn-custom mr-2">
+          Course Catalog
+        </Link>
+        <Link to="/create-course" className="btn btn-custom mr-2">
+          Create Course
+        </Link>
+        <Link to="/enroll" className="btn btn-custom">
+          Enroll in a Course
+        </Link>
       </div>
     </div>
   );
